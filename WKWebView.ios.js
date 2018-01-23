@@ -196,6 +196,10 @@ class WKWebView extends React.Component {
      */
     sendCookies: PropTypes.bool,
     /**
+     * Enables the zoom on the webview. Defaults to true as disabling it might lead to unwanted behavior.
+     */
+    enableZoom: PropTypes.bool,
+    /**
      * If set to true, target="_blank" or window.open will be opened in WebView, instead
      * of new window. Default is false to be backward compatible.
      */
@@ -273,7 +277,7 @@ class WKWebView extends React.Component {
 
     let source = {};
     if (this.props.source && typeof this.props.source == 'object') {
-      source = Object.assign({}, this.props.source, { 
+      source = Object.assign({}, this.props.source, {
         sendCookies: this.props.sendCookies,
         customUserAgent: this.props.customUserAgent || this.props.userAgent
       });
@@ -309,6 +313,7 @@ class WKWebView extends React.Component {
         onShouldStartLoadWithRequest={onShouldStartLoadWithRequest}
         pagingEnabled={this.props.pagingEnabled}
         directionalLockEnabled={this.props.directionalLockEnabled}
+        enableZoom={this.props.enableZoom}
       />;
 
     return (
