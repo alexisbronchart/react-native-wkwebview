@@ -294,7 +294,7 @@ RCT_NOT_IMPLEMENTED(- (instancetype)initWithCoder:(NSCoder *)aDecoder)
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView
 {
-  UIView *subview = scrollView.subviews.count > 0 : scrollView.subviews[0] : nil;
+  UIView *subview = scrollView.subviews.count > 0 ? scrollView.subviews[0] : nil;
   return self.enableZoom ? subview : nil;
 }
 
